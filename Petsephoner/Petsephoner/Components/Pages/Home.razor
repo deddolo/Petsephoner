@@ -1,0 +1,20 @@
+﻿@page "/"
+
+<PageTitle>Home</PageTitle>
+
+<h1>Hello, world!</h1>
+
+Welcome to your new app.
+
+<button class="btn btn-primary" @onclick="ToggleLed">Click me</button>
+
+@code {
+    private bool ledState = false;
+
+    private async void ToggleLed()
+    {
+        ledState = !ledState;
+
+        await Feeder.Instance.SetLed(ledState);
+    }
+}
